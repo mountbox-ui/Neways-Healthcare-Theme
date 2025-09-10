@@ -1,6 +1,6 @@
 <?php
 /**
- * Tov Theme functions and definitions
+ * Neways Healthcare Theme functions and definitions
  */
 
 if (!defined('ABSPATH')) {
