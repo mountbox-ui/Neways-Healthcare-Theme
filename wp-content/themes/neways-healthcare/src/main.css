@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-white leading-relaxed bg-navy-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight text-white;
+  }
+  
+  h1 { @apply text-4xl lg:text-5xl; }
+  h2 { @apply text-3xl lg:text-4xl; }
+  h3 { @apply text-2xl lg:text-3xl; }
+  h4 { @apply text-xl lg:text-2xl; }
+  h5 { @apply text-lg lg:text-xl; }
+  h6 { @apply text-base lg:text-lg; }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply btn text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn text-navy-700 bg-navy-100 hover:bg-navy-200 focus:ring-navy-500;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .card {
+    @apply bg-navy-800 rounded-lg shadow-lg overflow-hidden border border-navy-700;
+  }
+  
+  .post-content {
+    @apply prose prose-lg prose-invert max-w-none;
+  }
+  
+  /* Homepage Slider Styles */
+  .welcome-slider .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .welcome-slider .slide {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .welcome-slider .slider-prev:hover,
+  .welcome-slider .slider-next:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .welcome-slider .dot:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Homepage Sections */
+  .homepage-content {
+    @apply min-h-screen;
+  }
+  
+  .image-section img {
+    transition: transform 0.3s ease;
+  }
+  
+  .image-section img:hover {
+    transform: scale(1.02);
+  }
+
+  /* Navigation Menu Dropdown Styles */
+  .main-navigation {
+    @apply relative;
+  }
+
+  /* Desktop Menu Items */
+  .main-navigation .menu-item {
+    @apply relative;
+  }
+
+  /* Submenu Container */
+  .main-navigation .sub-menu {
+    @apply absolute top-full left-0 bg-navy-800 border border-navy-700 rounded-lg shadow-lg min-w-48 opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-in-out z-50;
+  }
+
+  /* Show submenu on parent hover */
+  .main-navigation .menu-item:hover .sub-menu {
+    @apply opacity-100 visible translate-y-0;
+  }
+
+  /* Submenu Items */
+  .main-navigation .sub-menu .menu-item {
+    @apply block w-full;
+  }
+
+  .main-navigation .sub-menu .menu-item a {
+    @apply block px-4 py-3 text-white hover:bg-navy-700 hover:text-navy-100 transition-colors duration-200 border-b border-navy-700 last:border-b-0;
+  }
+
+  /* First submenu item rounded top */
+  .main-navigation .sub-menu .menu-item:first-child a {
+    @apply rounded-t-lg;
+  }
+
+  /* Last submenu item rounded bottom */
+  .main-navigation .sub-menu .menu-item:last-child a {
+    @apply rounded-b-lg;
+  }
+
+  /* Parent menu item with submenu indicator */
+  .main-navigation .menu-item-has-children > a::after {
+    content: '▼';
+    @apply ml-1 text-xs transition-transform duration-200;
+  }
+
+  .main-navigation .menu-item-has-children:hover > a::after {
+    @apply transform rotate-180;
+  }
+
+  /* Mobile Menu Button */
+  #mobile-menu-button {
+    @apply lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-navy-200 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-navy-400 transition-colors duration-200;
+  }
+
+  /* Mobile Menu Button Icon */
+  #mobile-menu-button svg {
+    @apply h-6 w-6;
+  }
+
+  /* Ensure mobile menu button is always visible on small screens */
+  @media (max-width: 1023px) {
+    #mobile-menu-button {
+      @apply flex;
+    }
+    
+    .main-navigation {
+      @apply hidden;
+    }
+  }
+
+  /* Mobile Navigation Base */
+  .mobile-navigation {
+    @apply lg:hidden;
+  }
+
+  /* Mobile Menu Adjustments */
+  @media (max-width: 1023px) {
+    /* Mobile navigation when visible */
+    .mobile-navigation:not(.hidden) {
+      @apply block bg-navy-800 border-t border-navy-700;
+    }
+
+    .mobile-navigation .menu-item a {
+      @apply block px-3 py-2 text-base font-medium text-white hover:text-navy-200 hover:bg-navy-700 rounded-md transition-colors duration-200;
+    }
+
+    /* Mobile submenu styling */
+    .mobile-navigation .sub-menu {
+      @apply static opacity-100 visible transform-none bg-navy-900 border-0 rounded-none shadow-none min-w-0 pl-4 hidden;
+    }
+
+    .mobile-navigation .menu-item-has-children > a::after {
+      @apply float-right;
+    }
+
+    /* Show submenu when parent is open */
+    .mobile-navigation .menu-item-has-children.open .sub-menu {
+      @apply block;
+    }
+  }
+}
