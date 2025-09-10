@@ -1,2 +1,6 @@
-     wp-config.php
-     .env
+# Secrets and environment-specific configs (do not commit)
+/wp-config.php
+/wp-config-local.php
+/.env
+
+

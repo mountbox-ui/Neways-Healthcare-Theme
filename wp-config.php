@@ -19,18 +19,29 @@
  * @package WordPress
  */
 
+// Load environment-specific overrides if present (not committed)
+if (file_exists(__DIR__ . '/wp-config-local.php')) {
+    require __DIR__ . '/wp-config-local.php';
+}
+
+// Optionally load DB settings from environment variables
+if (!defined('DB_NAME') && getenv('DB_NAME'))     define('DB_NAME', getenv('DB_NAME'));
+if (!defined('DB_USER') && getenv('DB_USER'))     define('DB_USER', getenv('DB_USER'));
+if (!defined('DB_PASSWORD') && getenv('DB_PASSWORD')) define('DB_PASSWORD', getenv('DB_PASSWORD'));
+if (!defined('DB_HOST') && getenv('DB_HOST'))     define('DB_HOST', getenv('DB_HOST'));
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'local' );
+if ( ! defined( 'DB_NAME' ) ) define( 'DB_NAME', 'local' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+if ( ! defined( 'DB_USER' ) ) define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'root' );
+if ( ! defined( 'DB_PASSWORD' ) ) define( 'DB_PASSWORD', 'root' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+if ( ! defined( 'DB_HOST' ) ) define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
