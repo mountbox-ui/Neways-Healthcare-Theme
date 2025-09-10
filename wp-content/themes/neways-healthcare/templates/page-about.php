@@ -12,7 +12,7 @@ get_header(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class('about-page'); ?>>
             
             <!-- Hero Section -->
-            <section class="page-hero bg-navy-800 py-16 lg:py-24">
+            <section class="page-hero bg-gray-300 py-16 lg:py-24">
                 <div class="container-custom text-center">
                     <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">
                         <?php the_title(); ?>
