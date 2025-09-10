@@ -32,13 +32,13 @@ if (!defined('DB_HOST') && getenv('DB_HOST'))     define('DB_HOST', getenv('DB_H
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-if ( ! defined( 'DB_NAME' ) ) define( 'DB_NAME', 'local' );
+if ( ! defined( 'DB_NAME' ) ) define( 'DB_NAME', 'u387277923_neways' );
 
 /** Database username */
-if ( ! defined( 'DB_USER' ) ) define( 'DB_USER', 'root' );
+if ( ! defined( 'DB_USER' ) ) define( 'DB_USER', 'u387277923_neways' );
 
 /** Database password */
-if ( ! defined( 'DB_PASSWORD' ) ) define( 'DB_PASSWORD', 'root' );
+if ( ! defined( 'DB_PASSWORD' ) ) define( 'DB_PASSWORD', 'Hudaif@121' );
 
 /** Database hostname */
 if ( ! defined( 'DB_HOST' ) ) define( 'DB_HOST', 'localhost' );
