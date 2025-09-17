@@ -63,7 +63,7 @@ function tov_theme_scripts() {
     // Main stylesheet
     wp_enqueue_style(
         'tov-theme-style',
-        get_template_directory_uri() . '/assets/css/tov.css',
+        get_template_directory_uri() . '/assets/css/neways.css',
         array(),
         TOV_THEME_VERSION
     );

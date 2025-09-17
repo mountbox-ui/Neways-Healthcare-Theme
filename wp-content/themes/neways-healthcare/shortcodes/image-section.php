@@ -19,10 +19,12 @@ function tov_image_section_shortcode($atts) {
         'content' => '',
         'button_text' => '',
         'button_url' => '',
-        'background' => 'transparent' // transparent, navy, white
+        'background' => 'transparent', // transparent, navy, white
+        'layout' => '1-2' // 1-2 (1/3 text, 2/3 image) or 1-1 (50/50)
     ), $atts);
     
     $section_classes = 'image-section py-16';
+    $section_classes .= ' ' . ($atts['position'] === 'right' ? 'right' : 'left');
     if ($atts['background'] === 'navy') {
         $section_classes .= ' bg-navy-800';
     } elseif ($atts['background'] === 'white') {
@@ -32,14 +34,19 @@ function tov_image_section_shortcode($atts) {
     $text_color = $atts['background'] === 'white' ? 'text-gray-900' : 'text-white';
     $subtitle_color = $atts['background'] === 'white' ? 'text-gray-600' : 'text-navy-200';
     
+    // Set grid layout based on layout parameter
+    $grid_cols = $atts['layout'] === '1-1' ? 'lg:grid-cols-2' : 'lg:grid-cols-3';
+    $text_cols = $atts['layout'] === '1-1' ? 'lg:col-span-1' : 'lg:col-span-1';
+    $image_cols = $atts['layout'] === '1-1' ? 'lg:col-span-1' : 'lg:col-span-2';
+    
     ob_start();
     ?>
     <section class="<?php echo esc_attr($section_classes); ?>">
         <div class="container-custom">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 <?php echo $grid_cols; ?> gap-8 items-center">
                 <?php if ($atts['position'] === 'right') : ?>
                     <!-- Text Content First -->
-                    <div class="content-area">
+                    <div class="content-area <?php echo $text_cols; ?>">
                         <?php if (!empty($atts['title'])) : ?>
                             <h2 class="text-3xl md:text-4xl font-bold mb-6 <?php echo $text_color; ?>">
                                 <?php echo esc_html($atts['title']); ?>
@@ -59,7 +66,7 @@ function tov_image_section_shortcode($atts) {
                     
                     <!-- Image Second -->
                     <?php if (!empty($atts['image'])) : ?>
-                        <div class="image-area">
+                        <div class="image-area <?php echo $image_cols; ?>">
                             <img src="<?php echo esc_url($atts['image']); ?>" 
                                  alt="<?php echo esc_attr($atts['alt']); ?>" 
                                  class="w-full h-auto rounded-lg shadow-lg">
@@ -68,7 +75,7 @@ function tov_image_section_shortcode($atts) {
                 <?php else : ?>
                     <!-- Image First -->
                     <?php if (!empty($atts['image'])) : ?>
-                        <div class="image-area">
+                        <div class="image-area <?php echo $image_cols; ?>">
                             <img src="<?php echo esc_url($atts['image']); ?>" 
                                  alt="<?php echo esc_attr($atts['alt']); ?>" 
                                  class="w-full h-auto rounded-lg shadow-lg">
@@ -76,7 +83,7 @@ function tov_image_section_shortcode($atts) {
                     <?php endif; ?>
                     
                     <!-- Text Content Second -->
-                    <div class="content-area">
+                    <div class="content-area <?php echo $text_cols; ?>">
                         <?php if (!empty($atts['title'])) : ?>
                             <h2 class="text-3xl md:text-4xl font-bold mb-6 <?php echo $text_color; ?>">
                                 <?php echo esc_html($atts['title']); ?>

@@ -17,7 +17,7 @@
                             <a href="<?php echo esc_url(home_url('/')); ?>" class="text-white hover:text-navy-200 transition-colors duration-200">
                                 <?php bloginfo('name'); ?>
                             </a>. 
-                            <?php esc_html_e('All rights reserved.', 'tov-theme'); ?>
+                            <?php esc_html_e('All rights reserved.', 'neways-theme'); ?>
                         </p>
                     </div>
                     
@@ -42,10 +42,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
-
-
-
 
 </body>
 </html>

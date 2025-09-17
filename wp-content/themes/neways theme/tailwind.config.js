@@ -2,7 +2,6 @@
 module.exports = {
   content: [
     './*.php',
-    './template-parts/*.php',
     './inc/*.php',
     './templates/*.php',
     './shortcodes/*.php',
@@ -10,12 +9,6 @@ module.exports = {
     './*.html'
   ],
   theme: {
-    screens: {
-      mobile: '480px',
-      tablet: '820px',
-      laptop: '1366px',
-      desktop: '1920px',
-    },
     extend: {
       colors: {
         primary: {
@@ -44,6 +37,10 @@ module.exports = {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'serif': ['Merriweather', 'serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'merriweather': ['Merriweather', 'serif'],
       },
       spacing: {
         '18': '4.5rem',

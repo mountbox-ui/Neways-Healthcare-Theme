@@ -1,0 +1,101 @@
+<<-- Global Colors -->>
+
+<- System Colors ->
+
+Primary
+#016A7C
+
+Secondary
+#1C2321
+
+Text
+#6E7370
+
+Accent
+#FCBB76
+
+
+<<-- Custom Colors -->>
+
+Body - BG
+#FAF8F4
+
+Heading - Common
+#1C2321
+
+Button - Solid BG
+#016A7C
+
+Button - Solid Text
+#FFFFFF
+
+Button - Solid BG hover
+#1C2321
+
+Button - Plain Text
+#016A7C
+
+Button - Plain Text Hover
+#1C2321
+
+Stroke
+#E1E1E1
+
+Footer - BG
+#016A7C
+
+Dark - Heading
+#FFFFFF
+
+Dark - Text
+#FFFFFF80
+
+
+<<-- Global Fonts -->>
+
+<- System Fonts ->
+
+Primary
+Marcellus
+Font-Size: 
+Weight: 500 (Normal)
+
+Secondary
+Roboto Slab
+Font-Size:
+Weight: 500 (Normal)
+
+Text
+Lato
+Font-Size: 16px
+Weight: 400 (Normal)
+Line-Height: 1.3em
+
+Accent
+Roboto
+Font-Size:
+Weight: 500 (Medium)
+
+<<-- Custom Fonts -->>
+
+Button
+Marcellus
+Font-Size: 14px
+Weight: 500 (Medium)
+
+Menu
+Lato
+Font-Size: 27px
+Weight: 500 (Medium)
+
+Side drawer menu
+Lato
+Font-Size: 27px
+
+Text - SM
+Lato
+Font-Size: 14px
+
+Text - XS
+Lato
+Font-Size: 12px 

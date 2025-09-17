@@ -18,7 +18,9 @@ $shortcode_files = array(
     'welcome-slider.php',
     'image-section.php',
     'text-section.php',
-    'event-section.php',
+    'events-section.php',
+    'image-section-image.php',
+    'image-section-content.php',
     'hero-section.php',
     'aboutus-section.php',
 );

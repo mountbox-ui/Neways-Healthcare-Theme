@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <?php wp_head(); ?>
 </head>
@@ -43,36 +43,23 @@
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-navy-200 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-navy-400" aria-expanded="false">
-                    <span class="sr-only"><?php esc_html_e('Open main menu', 'tov-theme'); ?></span>
+                    <span class="sr-only"><?php esc_html_e('Open main menu', 'neways-theme'); ?></span>
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
 
                 <!-- Desktop Navigation -->
-                <nav id="site-navigation" class="main-navigation hidden lg:flex">
+                <nav id="site-navigation" class="main-navigation hidden lg:block">
                     <?php
-                    // Check if menu exists
-                    $menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['primary'] ?? 0);
-                    
-                    if ($menu_items && !is_wp_error($menu_items)) {
-                        // Use WordPress menu if it exists
-                        wp_nav_menu(array(
-                            'theme_location' => 'primary',
-                            'menu_id'        => 'primary-menu',
-                            'menu_class'     => 'flex space-x-4',
-                            'container'      => false,
-                            'depth'          => 2,
-                        ));
-                    } else {
-                        // Show fallback menu
-                        echo '<ul class="flex space-x-4">';
-                        echo '<li><a href="' . home_url('/') . '" class="text-white hover:text-navy-200 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a></li>';
-                        echo '<li><a href="' . home_url('/about') . '" class="text-white hover:text-navy-200 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a></li>';
-                        echo '<li><a href="' . home_url('/services') . '" class="text-white hover:text-navy-200 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a></li>';
-                        echo '<li><a href="' . home_url('/contact') . '" class="text-white hover:text-navy-200 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a></li>';
-                        echo '</ul>';
-                    }
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'menu_id'        => 'primary-menu',
+                        'menu_class'     => 'flex space-x-4',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'depth'          => 2, // Allow submenus
+                    ));
                     ?>
                 </nav>
 
@@ -88,10 +75,7 @@
                         'menu_id'        => 'mobile-menu',
                         'menu_class'     => 'space-y-1',
                         'container'      => false,
-                        'fallback_cb'    => function() {
-                            // Fallback menu if no menu is assigned
-                            echo '<ul class="space-y-1"><li><a href="' . home_url('/') . '" class="block px-3 py-2 text-base font-medium text-white hover:text-navy-200 hover:bg-navy-700 rounded-md transition-colors duration-200">Home</a></li><li><a href="' . home_url('/about') . '" class="block px-3 py-2 text-base font-medium text-white hover:text-navy-200 hover:bg-navy-700 rounded-md transition-colors duration-200">About</a></li><li><a href="' . home_url('/contact') . '" class="block px-3 py-2 text-base font-medium text-white hover:text-navy-200 hover:bg-navy-700 rounded-md transition-colors duration-200">Contact</a></li></ul>';
-                        },
+                        'fallback_cb'    => false,
                         'depth'          => 2, // Allow submenus
                     ));
                     ?>
